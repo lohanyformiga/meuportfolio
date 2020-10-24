@@ -1,0 +1,555 @@
+(("undefined" != typeof global ? global : self).webpackJsonp = ("undefined" != typeof global ? global : self).webpackJsonp || []).push([ [ 34 ], {
+    1061: function(t, e, i) {
+        t.exports = i(2)(356);
+    },
+    1381: function(t, e, i) {
+        t.exports = i(2)(278);
+    },
+    1452: function(t, e, i) {
+        var r = i(358), o = {}, n = new r.Template({
+            code: function(t, e, i) {
+                var r = this;
+                return r.b(i = i || ""), r.b('<svg class="rf-icon rf-icon--triangle" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 125.8 291.6" style="enable-background:new 0 0 125.8 291.6;">'), 
+                r.b("\n" + i), r.b('  <polygon points="88.6,145.8 18.6,64.7 18.6,226.9 "/>'), r.b("\n" + i), 
+                r.b("</svg>"), r.b("\n"), r.fl();
+            },
+            partials: {},
+            subs: {}
+        }, '{{! NOTE: This triangle was tailor-made for buttons. Feel free to use it elsewhere, but please do not change any attributes in this file. }}\n<svg class="rf-icon rf-icon--triangle" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 125.8 291.6" style="enable-background:new 0 0 125.8 291.6;">\n  <polygon points="88.6,145.8 18.6,64.7 18.6,226.9 "/>\n</svg>\n', r);
+        n.ri = function(t, e, i) {
+            return r.helpers && t.unshift(r.helpers), this.r(t, function(t, e) {
+                return Object.keys(e).reduce(function(t, i) {
+                    return t[i] = e[i], t;
+                }, t);
+            }(o, e), i);
+        }, t.exports = n.render.bind(n), t.exports.template = n;
+    },
+    2523: function(t, e, i) {
+        var r = i(358), o = {
+            "lib/_buttons/_default": i(1061).template
+        }, n = new r.Template({
+            code: function(t, e, i) {
+                var r = this;
+                return r.b(i = i || ""), r.b('<div id="profile-cover-wrap" class="faux-edit-cover cfix">'), 
+                r.b("\n" + i), r.b('  <div class="fancyform left" id="profile-cover-container">'), 
+                r.b("\n" + i), r.b('    <p class="small-text grey hide show-on-crop">IMAGE PREVIEW</p>'), 
+                r.b("\n"), r.b("\n" + i), r.b('    <div class="left cover-cropper hide show-on-crop">'), 
+                r.b("\n" + i), r.b('      <div id="profile-cover" class="profile-cover cfix">'), 
+                r.b("\n" + i), r.b('        <div id="cover-preview-img" class="cover-img relative dirty-form-html no-image-yet">'), 
+                r.b("\n" + i), r.b(r.rp("<lib/_buttons/_default0", t, e, "")), r.b("        </div>"), 
+                r.b("\n" + i), r.b("      </div>"), r.b("\n" + i), r.b("    </div>"), r.b("\n" + i), 
+                r.b("  </div>"), r.b("\n"), r.b("\n" + i), r.b('  <div class="cover-image-column image-column right hide">'), 
+                r.b("\n" + i), r.b('    <div class="cover-image-cropper"></div>'), r.b("\n" + i), 
+                r.b("  </div>"), r.b("\n" + i), r.b("</div>"), r.b("\n"), r.b("\n" + i), r.b('<div id="profile-cover-uploading" class="hide fancy-uploader">'), 
+                r.b("\n" + i), r.b('  <div id="profile-cover-image-progress" class="upload-progressbar-wrap js-upload-form">'), 
+                r.b("\n" + i), r.b('    <div class="upload-progressbar uploader_uploading_bar"></div>'), 
+                r.b("\n" + i), r.b("  </div>"), r.b("\n" + i), r.b("</div>"), r.b("\n"), r.fl();
+            },
+            partials: {
+                "<lib/_buttons/_default0": {
+                    name: "lib/_buttons/_default",
+                    partials: {},
+                    subs: {
+                        classes: function(t, e, i, r) {
+                            i.b("form-button-default");
+                        },
+                        label: function(t, e, i, r) {
+                            i.b("Upload Image");
+                        }
+                    }
+                }
+            },
+            subs: {}
+        }, '<div id="profile-cover-wrap" class="faux-edit-cover cfix">\n  <div class="fancyform left" id="profile-cover-container">\n    <p class="small-text grey hide show-on-crop">IMAGE PREVIEW</p>\n\n    <div class="left cover-cropper hide show-on-crop">\n      <div id="profile-cover" class="profile-cover cfix">\n        <div id="cover-preview-img" class="cover-img relative dirty-form-html no-image-yet">\n          {{<lib/_buttons/_default}}\n            {{$classes}}form-button-default{{/classes}}\n            {{$label}}Upload Image{{/label}}\n          {{/lib/_buttons/_default}}\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class="cover-image-column image-column right hide">\n    <div class="cover-image-cropper"></div>\n  </div>\n</div>\n\n<div id="profile-cover-uploading" class="hide fancy-uploader">\n  <div id="profile-cover-image-progress" class="upload-progressbar-wrap js-upload-form">\n    <div class="upload-progressbar uploader_uploading_bar"></div>\n  </div>\n</div>\n', r);
+        n.ri = function(t, e, i) {
+            return r.helpers && t.unshift(r.helpers), this.r(t, function(t, e) {
+                return Object.keys(e).reduce(function(t, i) {
+                    return t[i] = e[i], t;
+                }, t);
+            }(o, e), i);
+        }, t.exports = n.render.bind(n), t.exports.template = n;
+    },
+    2526: function(t, e, i) {
+        var r = i(2527);
+        "string" == typeof r && (r = [ [ t.i, r, "" ] ]);
+        var o = {
+            hmr: !0,
+            transform: void 0,
+            insertInto: void 0
+        };
+        i(822)(r, o);
+        r.locals && (t.exports = r.locals);
+    },
+    2527: function(t, e, i) {
+        (t.exports = i(191)(!1)).push([ t.i, ".jcrop-holder{direction:ltr;text-align:left}.jcrop-vline,.jcrop-hline{background:#fff top left repeat;font-size:0;position:absolute}.jcrop-vline{height:100%;width:1px !important}.jcrop-hline{height:1px !important;width:100%}.jcrop-vline.right{right:0}.jcrop-hline.bottom{bottom:0}.jcrop-handle{background-color:#333;border:1px #eee solid;font-size:1px}.jcrop-tracker{height:100%;width:100%;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.jcrop-handle.ord-n{left:50%;margin-left:-4px;margin-top:-4px;top:0}.jcrop-handle.ord-s{bottom:0;left:50%;margin-bottom:-4px;margin-left:-4px}.jcrop-handle.ord-e{margin-right:-4px;margin-top:-4px;right:0;top:50%}.jcrop-handle.ord-w{left:0;margin-left:-4px;margin-top:-4px;top:50%}.jcrop-handle.ord-nw{left:0;margin-left:-4px;margin-top:-4px;top:0}.jcrop-handle.ord-ne{margin-right:-4px;margin-top:-4px;right:0;top:0}.jcrop-handle.ord-se{bottom:0;margin-bottom:-4px;margin-right:-4px;right:0}.jcrop-handle.ord-sw{bottom:0;left:0;margin-bottom:-4px;margin-left:-4px}.jcrop-dragbar.ord-n,.jcrop-dragbar.ord-s{height:7px;width:100%}.jcrop-dragbar.ord-e,.jcrop-dragbar.ord-w{height:100%;width:7px}.jcrop-dragbar.ord-n{margin-top:-4px}.jcrop-dragbar.ord-s{bottom:0;margin-bottom:-4px}.jcrop-dragbar.ord-e{margin-right:-4px;right:0}.jcrop-dragbar.ord-w{margin-left:-4px}.jcrop-light .jcrop-vline,.jcrop-light .jcrop-hline{background:#fff;filter:Alpha(opacity=70) !important;opacity:0.7 !important}.jcrop-light .jcrop-handle{background-color:#000;border-color:#fff;border-radius:3px}.jcrop-dark .jcrop-vline,.jcrop-dark .jcrop-hline{background:#000;filter:Alpha(opacity=70) !important;opacity:0.7 !important}.jcrop-dark .jcrop-handle{background-color:#fff;border-color:#000;border-radius:3px}.jcrop-holder img,img.jcrop-preview{max-width:none}.pcrop-buttons-wrap{margin-top:10px;margin-left:-10px}.pcrop-buttons-wrap a{margin-left:10px}\n", "" ]);
+    },
+    2693: function(t, e, i) {
+        "use strict";
+        i.r(e);
+        var r = i(1381), o = {
+            onProgress: function() {
+                var t;
+                (t = this._view).onProgress.apply(t, arguments);
+            },
+            cropImage: function(t) {
+                var e = this.MAX_IMAGE_WIDTH || 520;
+                return t.oldWidth = t.width, t.oldHeight = t.height, t.width = Math.min(t.width, e), 
+                t.reductionRatio = t.width / t.oldWidth, t.height = t.height * t.reductionRatio, 
+                this._view.onRenderComplete(), this._view.crop(t);
+            },
+            hide: function() {
+                this._view.hide();
+            },
+            onError: function(t) {
+                this._view.onError(t);
+            },
+            onComplete: function(t) {
+                this._view.onComplete(t);
+            }
+        }, n = (i(19), i(20), i(52), i(22), i(32), i(197), i(59), i(26), i(27), i(24), i(23), 
+        i(444)), s = i(340), a = i.n(s), p = i(478), c = i.n(p), l = i(927), h = i(4), d = i(744), u = i(739), g = i(2523), _ = i.n(g), m = (i(2524), 
+        i(194), i(740)), f = i(1);
+        i(653), i(2525), i(2526);
+        function b(t, e) {
+            var i = Object.keys(t);
+            if (Object.getOwnPropertySymbols) {
+                var r = Object.getOwnPropertySymbols(t);
+                e && (r = r.filter(function(e) {
+                    return Object.getOwnPropertyDescriptor(t, e).enumerable;
+                })), i.push.apply(i, r);
+            }
+            return i;
+        }
+        function v(t) {
+            for (var e = 1; e < arguments.length; e++) {
+                var i = null != arguments[e] ? arguments[e] : {};
+                e % 2 ? b(Object(i), !0).forEach(function(e) {
+                    w(t, e, i[e]);
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(i)) : b(Object(i)).forEach(function(e) {
+                    Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(i, e));
+                });
+            }
+            return t;
+        }
+        function w(t, e, i) {
+            return e in t ? Object.defineProperty(t, e, {
+                value: i,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0
+            }) : t[e] = i, t;
+        }
+        a.a.widget("ui.previewCrop", Object.assign({}, {
+            options: {
+                center_select: !0,
+                mode: "data",
+                preview_ratio: 1,
+                img_data: null,
+                $preview_el: null,
+                $upload_el: null,
+                encoding: "base64",
+                min_size: [ 100, 100 ],
+                url: "/crop",
+                show_save: !0,
+                show_crop: !0,
+                show_recrop: !0,
+                show_cancel: !0,
+                max_height: 400,
+                max_width: 600,
+                shrink_box: !1
+            },
+            original_preview: null,
+            $save_btn: null,
+            $crop_btn: null,
+            $recrop_btn: null,
+            $cancel_btn: null,
+            $img_container: null,
+            $btns_container: null,
+            $preview_img_container: null,
+            $img: null,
+            $img_preview: null,
+            original_height: null,
+            original_width: null,
+            last_css: null,
+            data_source: "",
+            local_path: "",
+            name: "",
+            last_state: null,
+            _updated: null,
+            _coords: null,
+            coords: function() {
+                var t, e, i, r, o;
+                return !!this._coords && (o = this.options.min_size[1] / this.options.min_size[0], 
+                t = this._coords.x, e = this._coords.y, i = this._coords.x2 - this._coords.x, this._coords.y2 - this._coords.y, 
+                i = Math.round(i), r = Math.round(i * o), t = t + i > this.original_width ? this.original_width - i : t, 
+                e = e + r > this.original_height ? this.original_height - r : e, {
+                    x: t = Math.round(t),
+                    x2: t + i,
+                    y: e = Math.round(e),
+                    y2: e + r,
+                    w: i,
+                    h: r
+                });
+            },
+            updated: function() {
+                return this._updated;
+            },
+            cropReady: function() {
+                return !this._updated && (this.options.img_data.source || this.options.img_data.name);
+            },
+            source: function() {
+                return "data" === this.options.mode ? this.data_source : this.local_path + this.name;
+            },
+            uploadedFilename: function() {
+                return this.options.img_data.uploaded_filename;
+            },
+            filename: function() {
+                if ("link" !== this.options.mode) throw "No filenames are available if mode is not link";
+                return this.name;
+            },
+            destroy: function() {
+                this.element.html("");
+            },
+            crop: function() {
+                return this._crop();
+            },
+            recrop: function() {
+                return this._recrop();
+            },
+            cancel: function() {
+                return this._cancel();
+            },
+            pushState: function(t) {
+                this.last_state = {
+                    coords: this.coords(),
+                    img_data: v({}, this.options.img_data),
+                    data_source: this.data_source,
+                    local_path: this.local_path,
+                    name: this.name
+                }, this.options.img_data = t, this.element.html(""), this._init();
+            },
+            generateMarkup: function() {
+                var t = this._imgSource();
+                this.$img = a()('<img src="' + t + '"  class="pcrop-image" />'), this.$img_preview = a()('<img src="' + t + '" class="pcrop-preview-img" />'), 
+                this.$save_btn = a()('<a class="form-button form-button-default form-button-save pcrop-save-btn">Save</a>'), 
+                this.$crop_btn = a()('<a class="form-button form-button-default form-button-crop pcrop-crop-btn">Crop</a>'), 
+                this.$recrop_btn = a()('<a class="form-button form-button-default form-button-recrop pcrop-recrop-btn">Re-Crop</a>'), 
+                this.$cancel_btn = a()('<a class="form-button form-button-dark form-button-cancel pcrop-cancel-btn">Cancel</a>'), 
+                this.$img_container = a()('<div class="pcrop-image-wrap"></div>'), this.$btns_container = a()('<div class="pcrop-buttons-wrap cfix"></div>'), 
+                this.$preview_img_container = a()('<div class="pcrop-preview-wrap"></div>');
+            },
+            appendMarkup: function() {
+                var t = this, e = !1, i = this.options;
+                this.element.html(this.$img_container), a.a.each({
+                    show_recrop: "$recrop_btn",
+                    show_crop: "$crop_btn",
+                    show_save: "$save_btn",
+                    show_cancel: "$cancel_btn"
+                }, function(r, o) {
+                    !0 === i[r] && (t.$btns_container.append(t[o]), e = !0);
+                }), e && this.element.append(this.$btns_container), this.$img_container.append(this.$img), 
+                i.$preview_el.html(this.$preview_img_container), this.$preview_img_container.append(this.$img_preview);
+            },
+            bindButtons: function() {
+                this.$crop_btn.on("click", a.a.proxy(this._crop, this)), this.$recrop_btn.on("click", a.a.proxy(this._recrop, this)).hide(), 
+                this.$save_btn.on("click", a.a.proxy(this._save, this)), this.$cancel_btn.on("click", a.a.proxy(this._cancel, this));
+            },
+            jCrop: function() {
+                var t, e, i, r = this, o = this.options, n = 0, s = 0, p = o.min_size[0], c = o.min_size[1], l = o.img_data.width, h = o.img_data.height;
+                e = this.determineProportion(), l = o.img_data.width * e, h = o.img_data.height * e, 
+                i = o.shrink_box ? this.determineCropBoxProportion(l, h) : 1, p = p * e * i, c = c * e * i, 
+                this._coords = {}, this.last_css = {}, this.$preview_img_container.css({
+                    position: "relative",
+                    width: o.min_size[0] * o.preview_ratio + "px",
+                    height: o.min_size[1] * o.preview_ratio + "px",
+                    overflow: "hidden"
+                }), o.center_select ? (n = Math.round((h - c) / 2), s = Math.round((l - p) / 2)) : n = s = 0, 
+                this._coords = {
+                    x: s,
+                    x2: s + p,
+                    y: n,
+                    y2: n + c
+                }, t = {
+                    width: l,
+                    height: h,
+                    maxWidth: l
+                }, this.$img.css(t), this.$img_preview.css(v({}, t, {
+                    top: n + "px",
+                    left: s + "px"
+                })), this.$img.Jcrop({
+                    allowSelect: !1,
+                    minSize: [ Math.ceil(p), Math.ceil(c) ],
+                    setSelect: [ this._coords.x, this._coords.y, this._coords.x2, this._coords.y2 ],
+                    aspectRatio: p / c,
+                    bgOpacity: .4,
+                    onChange: function(t) {
+                        var i, n, s, p, c, d, u, g, _, m, f, b, v;
+                        t.x < 0 && (t.x2 -= t.x, t.x = 0), t.y < 0 && (t.y2 -= t.y, t.y = 0), p = t.x2 - t.x, 
+                        c = t.y2 - t.y, i = Math.min(p, l) / p, n = Math.min(c, h) / c, s = Math.min(i, n), 
+                        d = Math.round(p * s), u = Math.round(c * s), g = o.preview_ratio * o.min_size[0], 
+                        _ = o.preview_ratio * o.min_size[1], m = g * l / d, f = _ * h / u, b = g * t.x / d, 
+                        v = _ * t.y / u, r.last_css = {
+                            width: m + "px",
+                            height: f + "px",
+                            left: -b + "px",
+                            top: -v + "px",
+                            position: "absolute"
+                        }, r.$img_preview.css(r.last_css), t.w = p / e, t.h = c / e, t.x /= e, t.y /= e, 
+                        i = Math.min(t.w, o.img_data.width) / t.w, n = Math.min(t.h, o.img_data.height) / t.h, 
+                        s = Math.min(i, n), t.h *= s, t.w *= s, t.x2 = t.x + t.w, t.y2 = t.y + t.h, r._coords = t, 
+                        r._trigger("change", new a.a.Event(), {
+                            coords: t
+                        });
+                    }
+                });
+            },
+            determineProportion: function() {
+                var t = this.options, e = t.max_height, i = t.max_width;
+                return function() {
+                    var r = t.img_data.width / i, o = t.img_data.height / e;
+                    return 1 / Math.max(r, o, 1);
+                }();
+            },
+            determineCropBoxProportion: function(t, e) {
+                var i = this.options, r = i.min_size[1], o = i.min_size[0];
+                return function() {
+                    var i = t / o, n = e / r;
+                    return Math.min(i, n, 1);
+                }();
+            },
+            _setOption: function(t, e) {
+                var i = this._super(t, e);
+                return "max_width" !== t && "max_height" !== t || this.$img && this.$img.data("Jcrop") && (this.$img.data("Jcrop").destroy(), 
+                this.jCrop()), i;
+            },
+            _init: function() {
+                var t = this.options, e = t.img_data.width, i = t.img_data.height;
+                a.a.each([ "img_data", "$preview_el", "$upload_el", "url" ], function(e, i) {
+                    t[i] || a.a.error("Must pass in " + i);
+                }), this.generateMarkup(), this.original_preview = t.$preview_el.html(), this._updated = !1, 
+                t.img_data.height = parseFloat(t.img_data.height), t.img_data.width = parseFloat(t.img_data.width), 
+                this.original_height = t.img_data.height, this.original_width = t.img_data.width, 
+                this.appendMarkup(), this.bindButtons(), this.jCrop(), t.$upload_el.hide(), this._trigger("initialized", new a.a.Event(), {
+                    cw: e,
+                    ch: i
+                });
+            },
+            _imgSource: function() {
+                var t = this.options.img_data;
+                if ("data" === this.options.mode) return "data:" + t.mime + ";" + this.options.encoding + "," + t.source;
+                if ("link" === this.options.mode) return t.local_path + t.name;
+                throw new Error("Unknown mode: [" + this.options.mode + "]");
+            },
+            _crop: function() {
+                var t = this, e = this.options, i = this.coords();
+                function r(e) {
+                    l.default.show(t.$btns_container), t.$crop_btn.show(), t.$recrop_btn.hide(), t.$cancel_btn.show(), 
+                    e && e.messages ? Object(m.default)(t.element, e.messages) : Object(m.default)(t.element, [ {
+                        type: "error",
+                        message: "Image failed to crop. Please try again later."
+                    } ]), t._trigger("failure", new a.a.Event(), e);
+                }
+                if ("data" === e.mode ? i.source = this.options.img_data.source : i.file = this.options.img_data.name, 
+                i.h && i.w) return l.default.hide(this.$btns_container, "Cropping..."), Object(f.default)({
+                    url: this.options.url,
+                    type: "POST",
+                    data: i
+                }).then(function(i) {
+                    var o;
+                    i && i.valid ? ("data" === t.options.mode ? t.data_source = i.source : (t.local_path = i.local_path, 
+                    t.name = i.name), t._trigger("success", new a.a.Event(), i) && (e.$upload_el.show(), 
+                    t.$img_preview = a()("<img />"), o = "data" === e.mode ? "data:" + i.mime + ";" + e.encoding + "," + i.source : i.local_path + i.name, 
+                    t.$img_preview.css({
+                        width: e.min_size[0] * e.preview_ratio,
+                        height: e.min_size[1] * e.preview_ratio,
+                        top: "0px",
+                        left: "0px"
+                    }).addClass("pcrop-preview-img").attr("src", o), t.$preview_img_container.html(t.$img_preview), 
+                    t.$img_container.hide(), t.original_preview = e.$preview_el.html(), t._updated = !0, 
+                    t._trigger("valid", new a.a.Event(), i), l.default.show(t.$btns_container), t.$crop_btn.hide(), 
+                    t.$recrop_btn.show(), t.$cancel_btn.hide())) : r(i);
+                }, r), this.element;
+                this._trigger("badcoords", new a.a.Event());
+            },
+            _recrop: function() {
+                this.options.$upload_el.hide(), this.$img_preview = a()('<img src="' + this._imgSource() + '" class="pcrop-preview-img" />').css(this.last_css), 
+                this.$preview_img_container.html(this.$img_preview), this.$img_container.show(), 
+                this.$crop_btn.show(), this.$recrop_btn.hide(), this.$cancel_btn.show(), this._trigger("recrop");
+            },
+            _cancel: function() {
+                this.options.$upload_el.show(), this.$img_container.hide(), this.$crop_btn.hide(), 
+                this.$recrop_btn.hide(), this.$cancel_btn.hide(), this.options.$preview_el.html(this.original_preview), 
+                this.last_state ? (this.options.img_data = v({}, this.last_state.img_data), this.data_source = this.last_state.data_source, 
+                this.local_path = this.last_state.local_path, this.name = this.last_state.name, 
+                this.last_state = !1, this._coords = v({}, this.last_state.coords), this._updated = !0) : (this.options.img_data = {}, 
+                this.data_source = "", this.local_path = "", this.name = "", this._updated = !1, 
+                this._coords = null), this._trigger("cancel");
+            },
+            _save: function() {
+                this._coords.h && this._coords.w ? this._trigger("save") : this._trigger("badcoords");
+            }
+        }));
+        var $ = i(1452), x = i.n($);
+        function y(t, e) {
+            var i = Object.keys(t);
+            if (Object.getOwnPropertySymbols) {
+                var r = Object.getOwnPropertySymbols(t);
+                e && (r = r.filter(function(e) {
+                    return Object.getOwnPropertyDescriptor(t, e).enumerable;
+                })), i.push.apply(i, r);
+            }
+            return i;
+        }
+        function j(t, e, i) {
+            return e in t ? Object.defineProperty(t, e, {
+                value: i,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0
+            }) : t[e] = i, t;
+        }
+        var O = u.default.extend({
+            mustache: _.a,
+            templateData: function() {
+                return function(t) {
+                    for (var e = 1; e < arguments.length; e++) {
+                        var i = null != arguments[e] ? arguments[e] : {};
+                        e % 2 ? y(Object(i), !0).forEach(function(e) {
+                            j(t, e, i[e]);
+                        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(i)) : y(Object(i)).forEach(function(e) {
+                            Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(i, e));
+                        });
+                    }
+                    return t;
+                }({
+                    title: h.default.translate("profile_editor_replace_profile_picture", "Replace Profile Picture"),
+                    buttons: [ {
+                        label: h.default.translate("profile_editor_button_crop_save", "Crop & Save"),
+                        trailingIconAsset: x()(),
+                        classes: [ "form-submit", "rf-button--tertiary", "rf-button--icon-trailing" ]
+                    }, {
+                        label: h.default.translate("profile_editor_button_cancel", "Cancel"),
+                        classes: [ "rf-button--inline", "js-cancel" ]
+                    } ],
+                    hideClose: !0
+                }, this._super());
+            },
+            rendered: function() {
+                this._super(), this.$popup = this.$view.filter(".popup"), this.$submit = this.$view.find(".form-submit"), 
+                this.$cover = this.$view.find("#profile-cover-wrap"), this.$upload = this.$view.find("#profile-cover-uploading"), 
+                this.$progress = this.$upload.find(".upload-progressbar"), this.$preview = this.$cover.find(".cover-normal .cover-img"), 
+                this.$buttons = this.$view.find(".popup-buttons"), this.$upload_button = this.$preview.find(".form-button, .js-rf-button"), 
+                this.$popup.closest(".popup-inner").addClass("profile-dialog-popup"), this.$buttons.addClass("right-buttons").find(".form-submit").on("click", this.submit.bind(this)), 
+                this.$upload.find(".upload-progressbar").progressbar().find(".ui-progressbar-value").addClass("uploader_uploading_bg");
+            },
+            load: function(t) {
+                var e;
+                t.image && t.local_path && (e = a()("<img>", {
+                    src: t.local_path + t.image
+                }).css({
+                    width: n.default.IMAGE.WIDTH,
+                    height: n.default.IMAGE.HEIGHT
+                }), this.$preview.html(e).removeClass("no-image-yet"));
+            },
+            validateResponse: function(t) {
+                var e = h.default.translate("profile_editor_error_failed_upload", "File failed to upload. Please try again.");
+                return !!t.name || (a.a.isArray(t.messages) && 1 === t.messages.length ? e = t.messages.shift().message : t.error_msg && (e = t.error_msg), 
+                this.error(e), !1);
+            },
+            onError: function(t) {
+                this.$view && (l.default.show(this.$buttons), this.toggleProgress(!0), this.hide()), 
+                Object(d.default)({
+                    title: h.default.translate("profile_editor_simple_title_upload_error", "Upload Error"),
+                    classes: [ "image-upload-error-popup" ],
+                    html: t,
+                    buttons: [ {
+                        label: h.default.translate("profile_editor_button_okay", "Okay"),
+                        classes: [ "js-confirm" ]
+                    } ]
+                });
+            },
+            onProgress: function(t, e) {
+                var i = 100 * t / e;
+                this.$progress.progressbar("value", i);
+            },
+            onRenderComplete: function() {
+                this.$cover.removeClass("hide");
+            },
+            onComplete: function() {
+                this.$progress.progressbar("disable"), this.toggleProgress(!0);
+            },
+            preRender: function() {
+                this.$cover.addClass("hide"), this.$buttons.addClass("hide");
+            },
+            submit: function() {
+                this.toggleProgress(!1), l.default.hide(this.$buttons, h.default.translate("profile_editor_button_saving", "Saving..."));
+                var t = this.$cropper.previewCrop("coords");
+                t = this._getScaledCoords(t, this._model.get("imageData")), this.cropPromise.resolve(t);
+            },
+            _getScaledCoords: function(t, e) {
+                var i = Math.floor(t.w / e.reductionRatio), r = Math.floor(t.h / e.reductionRatio), o = Math.floor(t.x / e.reductionRatio), n = Math.floor(t.y / e.reductionRatio);
+                return {
+                    x: o,
+                    y: n,
+                    x2: o + i,
+                    y2: n + r
+                };
+            },
+            _isTooNarrow: function(t) {
+                return t < n.default.IMAGE.WIDTH;
+            },
+            _isTooShort: function(t) {
+                return t < n.default.IMAGE.HEIGHT;
+            },
+            _showPreviewCrop: function(t, e) {
+                this.$cropper.data("previewCrop") ? (t && this.$cropper.previewCrop("pushState", t), 
+                this.$cropper.previewCrop("recrop")) : this.$cropper.previewCrop({
+                    $preview_el: a()(""),
+                    $upload_el: a()(""),
+                    min_size: [ n.default.IMAGE.WIDTH, n.default.IMAGE.HEIGHT ],
+                    show_save: !1,
+                    show_cancel: !1,
+                    show_crop: !1,
+                    show_recrop: !1,
+                    max_width: 999999,
+                    max_height: e,
+                    img_data: t
+                });
+            },
+            hideButtons: function(t) {
+                t = t || h.default.translate("profile_editor_buttoN_sabing", "Saving..."), l.default.hide(this.$buttons, t);
+            },
+            toggleProgress: function(t) {
+                this.$upload.toggleClass("hide", t);
+            },
+            crop: function(t) {
+                var e, i = this.$cover.find(".cover-cropper .cover-img");
+                if (this.cropPromise = new c.a(), this._isTooNarrow(t.width) || this._isTooShort(t.height)) return this.cropPromise.reject(h.default.translate("profile_editor_error_resize", "Image cannot be resized properly. Try an image that is more like a square.")), 
+                this.cropPromise;
+                this._model.set("imageData", t), this.$cropper = this.$cover.find(".cover-image-column"), 
+                i.removeClass("no-image-yet"), this.$popup.addClass("crop-mode"), this.$buttons.removeClass("hide"), 
+                this.$cropper.removeClass("hide"), t && (e = a()(window).height() - (this.$view.outerHeight() - this.$cover.height()) - 20, 
+                this.$cropper.height(Math.min(t.height, e)).width(Math.min(t.width, Math.ceil(e / t.height * t.width))).css("max-height", e));
+                var r = this.$cover.children().toArray().map(function(t) {
+                    return a()(t).outerWidth(!0);
+                }).reduce(function(t, e) {
+                    return t + e;
+                }, 2);
+                return this.$cover.width(r), this._showPreviewCrop(t, e), this.position(), this.cropPromise;
+            }
+        });
+        e.default = r.default.extend({
+            init: function() {
+                this._super.apply(this, arguments), this.relay(this._view, "success hide");
+            },
+            render: function() {
+                this._super(), this._view.show(), this._view.position();
+            }
+        }, {
+            VIEW_CLASS: O
+        }).mixin(o);
+    },
+    744: function(t, e, i) {
+        t.exports = i(2)(104);
+    }
+} ]);

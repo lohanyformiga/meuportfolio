@@ -1,0 +1,220 @@
+(("undefined" != typeof global ? global : self).webpackJsonp = ("undefined" != typeof global ? global : self).webpackJsonp || []).push([ [ 135 ], {
+    1846: function(e, t, r) {
+        "use strict";
+        r.r(t);
+        var n = r(0), o = r(54), i = r(1238);
+        t.default = {
+            actions: Object(n.__assign)({}, Object(o.a)("footer", [ i.ACTIONS.USER_CLICKED_OPEN_APPS_LINK, i.ACTIONS.USER_CLICKED_CLOSE_APPS_MODAL ], "analytics"))
+        };
+    },
+    2654: function(e, t, r) {
+        "use strict";
+        r.r(t);
+        var n = r(17), o = (r(19), r(20), r(22), r(26), r(27), r(24), r(23), r(58)), i = r(1238), l = r(1846), s = r(1833), u = (r(69), 
+        r(85), r(43), r(9), r(11), r(84), r(45), r(46), r(44), r(382));
+        function a(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var n = Object.getOwnPropertySymbols(e);
+                t && (n = n.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable;
+                })), r.push.apply(r, n);
+            }
+            return r;
+        }
+        function c(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? a(Object(r), !0).forEach(function(t) {
+                    f(e, t, r[t]);
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : a(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t));
+                });
+            }
+            return e;
+        }
+        function f(e, t, r) {
+            return t in e ? Object.defineProperty(e, t, {
+                value: r,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0
+            }) : e[t] = r, e;
+        }
+        function p(e, t) {
+            return function(e) {
+                if (Array.isArray(e)) return e;
+            }(e) || function(e, t) {
+                if (!(Symbol.iterator in Object(e) || "[object Arguments]" === Object.prototype.toString.call(e))) return;
+                var r = [], n = !0, o = !1, i = void 0;
+                try {
+                    for (var l, s = e[Symbol.iterator](); !(n = (l = s.next()).done) && (r.push(l.value), 
+                    !t || r.length !== t); n = !0) ;
+                } catch (e) {
+                    o = !0, i = e;
+                } finally {
+                    try {
+                        n || null == s.return || s.return();
+                    } finally {
+                        if (o) throw i;
+                    }
+                }
+                return r;
+            }(e, t) || function() {
+                throw new TypeError("Invalid attempt to destructure non-iterable instance");
+            }();
+        }
+        function d(e, t, r, n, o, i, l) {
+            try {
+                var s = e[i](l), u = s.value;
+            } catch (e) {
+                return void r(e);
+            }
+            s.done ? t(u) : Promise.resolve(u).then(n, o);
+        }
+        function b() {
+            return (b = function(e) {
+                return function() {
+                    var t = this, r = arguments;
+                    return new Promise(function(n, o) {
+                        var i = e.apply(t, r);
+                        function l(e) {
+                            d(i, n, o, l, s, "next", e);
+                        }
+                        function s(e) {
+                            d(i, n, o, l, s, "throw", e);
+                        }
+                        l(void 0);
+                    });
+                };
+            }(regeneratorRuntime.mark(function e(t) {
+                var n, o, i, l, s, u, a, f, d, b, h, v, y, O, m, P;
+                return regeneratorRuntime.wrap(function(e) {
+                    for (;;) switch (e.prev = e.next) {
+                      case 0:
+                        return e.next = 2, Promise.all([ Promise.resolve().then(r.bind(null, 1833)), Promise.resolve().then(r.bind(null, 17)), Promise.resolve().then(r.bind(null, 58)), Promise.resolve().then(r.bind(null, 72)), Promise.resolve().then(r.bind(null, 133)), Promise.resolve().then(r.t.bind(null, 120, 7)), Promise.resolve().then(r.t.bind(null, 135, 7)), Promise.resolve().then(r.bind(null, 47)), Promise.resolve().then(r.bind(null, 129)), Promise.resolve().then(r.bind(null, 1238)), Promise.resolve().then(r.bind(null, 1846)) ]);
+
+                      case 2:
+                        return n = e.sent, o = p(n, 11), i = o[0].default, l = o[1].default, s = o[2].default, 
+                        u = o[3].default, a = o[4].default, f = o[5].default, d = o[6].default, b = o[7].default, 
+                        h = o[8].default, v = o[9].default, y = o[10].default, l.use(s), l.use(d), O = new s.Store({
+                            modules: {
+                                translation: u,
+                                user: h,
+                                footer: v,
+                                footerAnalytics: y
+                            }
+                        }), m = {
+                            config: t
+                        }, O.replaceState(f({}, c({}, O.state, {
+                            user: {
+                                loggedInUser: b.isLoggedIn()
+                            }
+                        }), m)), a(l).setLocalization(O, m.config.LOCALIZATION), (P = new l(c({}, i, {
+                            store: O
+                        }))).$mount(".js-vue-overlay-portal"), e.abrupt("return", P.$store);
+
+                      case 25:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+            }))).apply(this, arguments);
+        }
+        var h = r.n(u).a.extend({
+            init: function(e) {
+                var t = this, r = e.$store, n = e.config;
+                r ? (this.$store = r, this.openAppsModalHandler = function(e) {
+                    e.preventDefault(), this.$store.dispatch("footer/" + i.ACTIONS.USER_CLICKED_OPEN_APPS_LINK);
+                }.bind(this)) : function(e) {
+                    return b.apply(this, arguments);
+                }(n).then(function(e) {
+                    t.$store = e;
+                });
+            },
+            bind: function() {
+                var e;
+                null === (e = document.querySelector(".js-apps-modal")) || void 0 === e || e.addEventListener("click", this.openAppsModalHandler);
+            },
+            unbind: function() {
+                var e;
+                null === (e = document.querySelector(".js-apps-modal")) || void 0 === e || e.removeEventListener("click", this.openAppsModalHandler);
+            }
+        });
+        function v(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var n = Object.getOwnPropertySymbols(e);
+                t && (n = n.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable;
+                })), r.push.apply(r, n);
+            }
+            return r;
+        }
+        function y(e, t, r) {
+            return t in e ? Object.defineProperty(e, t, {
+                value: r,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0
+            }) : e[t] = r, e;
+        }
+        var O = {
+            components: {
+                DownloadAppModalLayout: s.default
+            },
+            computed: function(e) {
+                for (var t = 1; t < arguments.length; t++) {
+                    var r = null != arguments[t] ? arguments[t] : {};
+                    t % 2 ? v(Object(r), !0).forEach(function(t) {
+                        y(e, t, r[t]);
+                    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : v(Object(r)).forEach(function(t) {
+                        Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t));
+                    });
+                }
+                return e;
+            }({}, Object(o.mapState)({
+                isAppModalEnabled: function(e) {
+                    return e.footer.isAppModalEnabled;
+                }
+            })),
+            data: function() {
+                return {
+                    footer: null
+                };
+            },
+            beforeCreate: function() {
+                this.$store.registerModule("footer", i.default, {
+                    preserveState: !!this.$store.state.footer
+                }), this.$store.registerModule("footerAnalytics", l.default, {
+                    preserveState: !!this.$store.state.footerAnalytics
+                });
+            },
+            mounted: function() {
+                this.isAppModalEnabled && (this.footer = h.init({
+                    $store: this.$store
+                }));
+            },
+            beforeDestroy: function() {
+                this.isAppModalEnabled && this.footer.destroy(), this.$store.unregisterModule("footer"), 
+                this.$store.unregisterModule("footerAnalytics");
+            }
+        }, m = r(68), P = Object(m.default)(O, function() {
+            var e = this.$createElement, t = this._self._c || e;
+            return this.isAppModalEnabled ? t("DownloadAppModalLayout", {
+                ref: "appsModal"
+            }) : this._e();
+        }, [], !1, null, null, null).exports, g = n.default.extend({
+            components: {
+                Footer: P
+            }
+        }), j = Object(m.default)(g, function() {
+            var e = this.$createElement, t = this._self._c || e;
+            return t("div", [ t("router-view"), t("Footer") ], 1);
+        }, [], !1, null, null, null);
+        t.default = j.exports;
+    },
+    382: function(e, t, r) {
+        e.exports = r(2)(49);
+    }
+} ]);

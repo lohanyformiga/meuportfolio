@@ -1,0 +1,948 @@
+(("undefined" != typeof global ? global : self).webpackJsonp = ("undefined" != typeof global ? global : self).webpackJsonp || []).push([ [ 30 ], {
+    1046: function(e, t, n) {
+        e.exports = n(2)(341);
+    },
+    1059: function(e, t, n) {
+        e.exports = n(2)(86);
+    },
+    1072: function(e, t, n) {
+        "use strict";
+        var o = n(749), i = n.n(o);
+        t.default = i.a;
+    },
+    1073: function(e, t, n) {
+        (t = e.exports = n(191)(!1)).push([ e.i, ".SMSAppLink-formWrap-2dz {\n  -webkit-box-align: start;\n          align-items: flex-start;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  text-align: left;\n}\n.SMSAppLink-input-Xvf {\n  margin-right: 10px;\n  width: 230px;\n}\n.SMSAppLink-sendBtn-1Lu {\n  margin-top: 21px;\n}\n.SMSAppLink-postingSpinner-2_p {\n  height: 16px;\n  position: relative;\n  width: 16px !important;\n}\n.SMSAppLink-postingSpinner-2_p .rf-spinner__spinner {\n    height: 100%;\n    left: 0;\n    min-height: 0 !important;\n    min-width: 0 !important;\n    top: 0;\n    width: 100%;\n}\n.SMSAppLink-successWrap-2bg {\n  color: #058900;\n  padding: 21px 0;\n}\n.SMSAppLink-success-1PO {\n  -webkit-box-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: flex;\n  font-size: 14px;\n  font-weight: bold;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n.SMSAppLink-check-3lA {\n  fill: #058900;\n  height: 26px;\n  margin-right: 2px;\n  width: 26px;\n}\n", "" ]), 
+        t.locals = {
+            formWrap: "SMSAppLink-formWrap-2dz",
+            input: "SMSAppLink-input-Xvf",
+            sendBtn: "SMSAppLink-sendBtn-1Lu",
+            postingSpinner: "SMSAppLink-postingSpinner-2_p",
+            successWrap: "SMSAppLink-successWrap-2bg",
+            success: "SMSAppLink-success-1PO",
+            check: "SMSAppLink-check-3lA"
+        };
+    },
+    1221: function(e, t, n) {
+        "use strict";
+        n(366), n(86), n(71), n(193), n(107), n(195);
+        var o = n(359), i = n(392), s = n(362), r = n(590), a = n(7), p = n(377), l = n(1364), d = {
+            components: {
+                Btn: o.a,
+                TextInput: i.a,
+                Spinner: s.a,
+                CheckIcon: r.a,
+                Fade: p.a
+            },
+            props: {
+                sendSMSStatusCode: {
+                    type: Number
+                },
+                sendButtonType: {
+                    type: String,
+                    default: "base"
+                }
+            },
+            data: function() {
+                return {
+                    tel: "",
+                    errorMessage: null,
+                    canViewSuccessState: !1,
+                    isSending: !1,
+                    successMessageDuration: 2e3
+                };
+            },
+            watch: {
+                sendSMSStatusCode: function(e) {
+                    var t = this;
+                    switch (e) {
+                      case a.j.SUCCESS:
+                        this.tel = "", this.canViewSuccessState = !0, this.isSending = !1, setTimeout(function() {
+                            return t.$emit("smsSuccessMessageRead");
+                        }, this.successMessageDuration);
+                        break;
+
+                      case a.j.FAILED:
+                        this.canViewSuccessState = !1, this.isSending = !1;
+                        break;
+
+                      default:
+                        this.canViewSuccessState = !1;
+                    }
+                }
+            },
+            methods: {
+                prependPrefix: function() {
+                    "+" !== this.tel.split("")[0] && (this.tel = "+" + this.tel);
+                },
+                resetErrorMessage: function() {
+                    this.errorMessage = null;
+                },
+                isUSNumberWithoutCountryCode: function() {
+                    var e = this.tel.split("").slice(1, this.tel.length).join("");
+                    return /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(e);
+                },
+                addUSCountryCode: function() {
+                    var e = this.tel.split("");
+                    e.splice(1, 0, "1"), this.tel = e.join("");
+                },
+                send: function() {
+                    var e = Object(l.b)(this.tel), t = e.country, n = e.phone, o = !t || !n;
+                    if (this.isUSNumberWithoutCountryCode() && o) return this.addUSCountryCode(), this.resetErrorMessage(), 
+                    void this.send();
+                    if (o) this.errorMessage = this.$translate("stories_upload_invalid_country_or_phone_number", "Invalid country code or phone number"); else {
+                        var i = Object(l.a)(n, t, "E.164");
+                        this.isSending = !0, this.$emit("appLinkRequested", i);
+                    }
+                }
+            }
+        }, c = n(1072), u = n(68);
+        var f = Object(u.default)(d, function() {
+            var e = this, t = e.$createElement, n = e._self._c || t;
+            return n("div", [ n("Fade", {
+                attrs: {
+                    mode: "out-in"
+                }
+            }, [ e.canViewSuccessState ? n("div", {
+                ref: "success",
+                class: e.$style.successWrap
+            }, [ n("span", {
+                class: e.$style.success
+            }, [ n("CheckIcon", {
+                class: e.$style.check
+            }), e._v(" " + e._s(e.$translate("stories_app_link_sent_success", "Download Link Sent"))) ], 1) ]) : n("div", {
+                ref: "formWrap",
+                class: e.$style.formWrap
+            }, [ n("TextInput", {
+                ref: "textInput",
+                class: e.$style.input,
+                attrs: {
+                    type: "tel",
+                    errorMessage: e.errorMessage,
+                    disabled: e.isSending,
+                    isErrorMessageFixed: !0,
+                    placeholder: e.$translate("stories_upload_mobile_number_placeholder", "Country Code + Mobile number")
+                },
+                on: {
+                    enter: e.send,
+                    input: function(t) {
+                        e.prependPrefix(), e.resetErrorMessage();
+                    }
+                },
+                model: {
+                    value: e.tel,
+                    callback: function(t) {
+                        e.tel = t;
+                    },
+                    expression: "tel"
+                }
+            }), n("Btn", {
+                ref: "sendLinkBtn",
+                class: e.$style.sendBtn,
+                attrs: {
+                    type: e.sendButtonType,
+                    disabled: e.isSending
+                },
+                on: {
+                    click: e.send
+                }
+            }, [ e.isSending ? n("Spinner", {
+                ref: "postingSpinner",
+                class: e.$style.postingSpinner,
+                attrs: {
+                    slot: "leadingIcon",
+                    autofill: !0,
+                    color: "white"
+                },
+                slot: "leadingIcon"
+            }) : e._e(), e._v(" " + e._s(e.$translate("stories_upload_best_experience_send", "Send")) + " ") ], 1) ], 1) ]) ], 1);
+        }, [], !1, function(e) {
+            this.$style = c.default.locals || c.default;
+        }, null, null);
+        t.a = f.exports;
+    },
+    1231: function(e, t, n) {
+        e.exports = n(2)(363);
+    },
+    1278: function(e, t, n) {
+        e.exports = n(2)(109);
+    },
+    1279: function(e, t, n) {
+        e.exports = n(2)(267);
+    },
+    1282: function(e, t) {},
+    1283: function(e, t) {},
+    1290: function(e, t) {},
+    1292: function(e, t) {},
+    1299: function(e, t) {},
+    1764: function(e, t, n) {
+        var o = n(2506);
+        "string" == typeof o && (o = [ [ e.i, o, "" ] ]), o.locals && (e.exports = o.locals);
+        (0, n(192).default)("1370da1b", o, !0, {});
+    },
+    1765: function(e, t, n) {
+        var o = n(2508);
+        "string" == typeof o && (o = [ [ e.i, o, "" ] ]), o.locals && (e.exports = o.locals);
+        (0, n(192).default)("220b4630", o, !0, {});
+    },
+    1766: function(e, t, n) {
+        var o = n(2510);
+        "string" == typeof o && (o = [ [ e.i, o, "" ] ]), o.locals && (e.exports = o.locals);
+        (0, n(192).default)("f1994a0c", o, !0, {});
+    },
+    1767: function(e, t, n) {
+        var o = n(2512);
+        "string" == typeof o && (o = [ [ e.i, o, "" ] ]), o.locals && (e.exports = o.locals);
+        (0, n(192).default)("b5fab6ee", o, !0, {});
+    },
+    1791: function(e, t, n) {
+        "use strict";
+        var o = n(68), i = Object(o.default)({}, function() {
+            var e = this.$createElement, t = this._self._c || e;
+            return t("svg", {
+                attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "3218 -1711 14 14"
+                }
+            }, [ t("path", {
+                attrs: {
+                    d: "M8,1a7,7,0,1,0,7,7A7,7,0,0,0,8,1ZM9,13H7V11H9Zm1.92-5.7a4.809,4.809,0,0,1-.95.9l-.449.35a1.242,1.242,0,0,0-.445.6A2.634,2.634,0,0,0,9,9.871V10H7.014l.006-.135a5.028,5.028,0,0,1,.211-1.526,2.691,2.691,0,0,1,.888-1l.462-.361a1.5,1.5,0,0,0,.343-.346,1.163,1.163,0,0,0,.229-.7,1.369,1.369,0,0,0-.258-.8,1.073,1.073,0,0,0-.924-.34,1.006,1.006,0,0,0-.932.427,1.745,1.745,0,0,0-.287.947V6.3h-2.1l.007-.135a3.1,3.1,0,0,1,1.324-2.67,3.475,3.475,0,0,1,1.911-.5,4.121,4.121,0,0,1,2.461.71,2.479,2.479,0,0,1,1,2.138A2.449,2.449,0,0,1,10.92,7.3Z",
+                    transform: "translate(3217 -1712)"
+                }
+            }) ]);
+        }, [], !1, null, null, null);
+        t.a = i.exports;
+    },
+    2505: function(e, t, n) {
+        "use strict";
+        var o = n(1764), i = n.n(o);
+        t.default = i.a;
+    },
+    2506: function(e, t, n) {
+        (t = e.exports = n(191)(!1)).push([ e.i, ".TextAppLink-wrap-JAf {\n  min-width: 400px;\n  padding: 24px 40px 10px;\n}\n.TextAppLink-wrap-JAf .focus-visible {\n    outline: 1px solid #0057ff;\n    outline-offset: 2px;\n}\n.TextAppLink-text-14Z {\n  color: #696969;\n  font-size: 14px;\n  text-align: center;\n}\n.TextAppLink-text-14Z .link {\n    color: #191919;\n    font-weight: normal;\n}\n.TextAppLink-text-14Z .link:hover {\n      text-decoration: underline;\n}\n", "" ]), 
+        t.locals = {
+            wrap: "TextAppLink-wrap-JAf",
+            text: "TextAppLink-text-14Z"
+        };
+    },
+    2507: function(e, t, n) {
+        "use strict";
+        var o = n(1765), i = n.n(o);
+        t.default = i.a;
+    },
+    2508: function(e, t, n) {
+        (t = e.exports = n(191)(!1)).push([ e.i, ".Uploader-wrapper-1J_ {\n  width: 415px;\n}\n.Uploader-uploadIcon-2mI {\n  fill: #e8e8e8;\n  height: 67px;\n  -webkit-transition: fill 0.2s linear;\n  transition: fill 0.2s linear;\n  width: 67px;\n}\n.Uploader-dropping-1IY .Uploader-uploadIcon-2mI {\n    fill: #0057ff;\n}\n.Uploader-chooseWrap-279,\n.Uploader-textApp-3lS {\n  background: #fff;\n  border-radius: 3px;\n}\n.Uploader-chooseWrap-279 {\n  padding: 20px;\n  position: relative;\n}\n.Uploader-chooseWrap-279::before {\n    border: 7px dashed #ccc;\n    content: '';\n    height: calc(100% - 52px);\n    left: 19px;\n    position: absolute;\n    top: 19px;\n    -webkit-transition: border 0.3s linear;\n    transition: border 0.3s linear;\n    width: calc(100% - 52px);\n}\n.Uploader-chooseWrap-279.Uploader-dropping-1IY::before {\n    border-color: #0057ff;\n}\n.Uploader-choose-bpZ {\n  -webkit-box-align: center;\n          align-items: center;\n  background: #fff;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-pack: center;\n          justify-content: center;\n  min-height: 500px;\n  position: relative;\n  -webkit-transition: background 0.3s linear;\n  transition: background 0.3s linear;\n  z-index: 1;\n}\n.Uploader-dropping-1IY .Uploader-choose-bpZ {\n    background: #f5f8ff;\n}\n.Uploader-header-2N0 {\n  color: #191919;\n  font-size: 24px;\n  font-weight: normal;\n  margin: 24px 0 12px;\n  text-align: center;\n  -webkit-transition: color 0.3s linear;\n  transition: color 0.3s linear;\n  width: 100%;\n}\n.Uploader-dropping-1IY .Uploader-header-2N0 {\n    color: #0057ff;\n}\n.Uploader-textApp-3lS {\n  margin-top: 11px;\n  position: relative;\n}\n.Uploader-text-3RW {\n  color: #696969;\n  font-size: 16px;\n  margin-bottom: 40px;\n  -webkit-transition: color 0.3s linear;\n  transition: color 0.3s linear;\n}\n.Uploader-dropping-1IY .Uploader-text-3RW {\n    color: #0057ff;\n}\n.Uploader-info-VaH {\n  fill: #fff;\n  margin-right: 5px;\n  width: 12px;\n}\n", "" ]), 
+        t.locals = {
+            wrapper: "Uploader-wrapper-1J_",
+            uploadIcon: "Uploader-uploadIcon-2mI",
+            dropping: "Uploader-dropping-1IY",
+            chooseWrap: "Uploader-chooseWrap-279",
+            textApp: "Uploader-textApp-3lS",
+            choose: "Uploader-choose-bpZ",
+            header: "Uploader-header-2N0",
+            text: "Uploader-text-3RW",
+            info: "Uploader-info-VaH"
+        };
+    },
+    2509: function(e, t, n) {
+        "use strict";
+        var o = n(1766), i = n.n(o);
+        t.default = i.a;
+    },
+    2510: function(e, t, n) {
+        (t = e.exports = n(191)(!1)).push([ e.i, ".Cropper-previewCropContainer-14J {\n  display: none;\n}\n.Cropper-actionButtons-1HV {\n  -webkit-box-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: end;\n          justify-content: flex-end;\n  margin-top: 25px;\n}\n.Cropper-cropper-2RS {\n  position: relative;\n}\n.Cropper-cropper-2RS .helicropter--scale-slider {\n    max-width: 200px;\n}\n.Cropper-mediaOverlay-1SD {\n  left: 0;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 2;\n}\n.Cropper-mediaOverlay-1SD::before {\n    content: '';\n    display: block;\n    height: 55px;\n    opacity: 0.5;\n    position: absolute;\n    width: 100%;\n}\n.Cropper-mediaOverlay-1SD::before {\n    background: -webkit-gradient(linear, left top, left bottom, from(#191919), to(rgba(0, 0, 0, 0)));\n    background: linear-gradient(#191919, rgba(0, 0, 0, 0));\n    top: 0;\n}\n.Cropper-avatar-X0U {\n  margin-right: 10px;\n}\n.Cropper-user-3B4 {\n  -webkit-box-align: center;\n          align-items: center;\n  color: #fff;\n  display: -webkit-box;\n  display: flex;\n  font-size: 15px;\n  left: 15px;\n  position: absolute;\n  top: 15px;\n  z-index: 3;\n}\n.Cropper-user-3B4 .Cropper-avatarUsername-2Wv {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    max-width: 270px;\n}\n.Cropper-postBtn-3Bx .Cropper-postingSpinner-28Y {\n  height: 16px;\n  position: relative;\n  width: 16px;\n}\n.Cropper-postBtn-3Bx .Cropper-postingSpinner-28Y .rf-spinner__spinner {\n    height: 100%;\n    left: 0;\n    min-height: 0 !important;\n    min-width: 0 !important;\n    top: 0;\n    width: 100%;\n}\n.Cropper-addMoreWrap-3JD {\n  bottom: -70px;\n  position: absolute;\n  text-align: center;\n  width: 100%;\n}\n@media screen and (max-height: 920px) {\n.Cropper-addMoreWrap-3JD {\n      bottom: -59px;\n}\n}\n.Cropper-addMore-34O {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-align: center;\n          align-items: center;\n  color: #fff;\n  cursor: pointer;\n  display: block;\n  font-weight: bold;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n.Cropper-addMoreWrap-3JD:hover .Cropper-addMore-34O {\n    text-decoration: underline;\n}\n.Cropper-info-1hq {\n  fill: #fff;\n  margin-right: 5px;\n  position: relative;\n  top: 1px;\n  width: 12px;\n}\n.Cropper-tags-3Bk {\n  color: #fff;\n  font-weight: bold;\n  left: calc(100% + 25px + 15px);\n  position: absolute;\n  text-align: left;\n  top: -12.5px;\n}\n.Cropper-tagsTitle-2T3 {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  display: block;\n  font-size: 13px;\n  margin-bottom: 10px;\n  max-width: 200px;\n}\n.Cropper-tagsLabel-3lC {\n  display: block;\n}\n.Cropper-tagsName-2Uw {\n  background: #fff;\n  border-radius: 3px;\n  color: #191919;\n  cursor: pointer;\n  display: inline-block;\n  font-size: 11px;\n  margin: 5px 0;\n  padding: 5px 9px;\n  text-transform: uppercase;\n}\n.Cropper-tagsLabel-3lC:hover .Cropper-tagsName-2Uw {\n    background: #f2f2f2;\n}\n.Cropper-tagInput-6vD {\n  position: absolute;\n  top: -100vh;\n}\n.Cropper-tagInput-6vD:checked + .Cropper-tagsName-2Uw {\n    background: #191919;\n    color: #fff;\n}\n.Cropper-cropper-2RS .focus-visible {\n  outline: 1px solid #0057ff;\n  outline-offset: 2px;\n}\n", "" ]), 
+        t.locals = {
+            previewCropContainer: "Cropper-previewCropContainer-14J",
+            actionButtons: "Cropper-actionButtons-1HV",
+            cropper: "Cropper-cropper-2RS",
+            mediaOverlay: "Cropper-mediaOverlay-1SD",
+            avatar: "Cropper-avatar-X0U",
+            user: "Cropper-user-3B4",
+            avatarUsername: "Cropper-avatarUsername-2Wv",
+            postBtn: "Cropper-postBtn-3Bx",
+            postingSpinner: "Cropper-postingSpinner-28Y",
+            addMoreWrap: "Cropper-addMoreWrap-3JD",
+            addMore: "Cropper-addMore-34O",
+            info: "Cropper-info-1hq",
+            tags: "Cropper-tags-3Bk",
+            tagsTitle: "Cropper-tagsTitle-2T3",
+            tagsLabel: "Cropper-tagsLabel-3lC",
+            tagsName: "Cropper-tagsName-2Uw",
+            tagInput: "Cropper-tagInput-6vD"
+        };
+    },
+    2511: function(e, t, n) {
+        "use strict";
+        var o = n(1767), i = n.n(o);
+        t.default = i.a;
+    },
+    2512: function(e, t, n) {
+        (t = e.exports = n(191)(!1)).push([ e.i, ".UploadStoryModal-uploadModal-3Rf .slider-container {\n  -webkit-box-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n.UploadStoryModal-uploadModal-3Rf .image-crop-controls {\n  background: #f9f9f9;\n  border: 1px solid #e8e8e8;\n  padding: 19px;\n}\n.UploadStoryModal-uploadModal-3Rf .icon {\n  fill: #696969;\n  margin: 0 10px;\n  opacity: 0.4;\n}\n.UploadStoryModal-uploadModal-3Rf .upload-container-wrapper {\n  background: #191919;\n  height: 100%;\n  overflow: hidden;\n  position: relative;\n}\n.UploadStoryModal-uploadModal-3Rf .upload-background-image {\n  bottom: 0;\n  display: block;\n  left: 0;\n  opacity: 0.3;\n  position: absolute;\n  right: 0;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  width: 100%;\n}\n.UploadStoryModal-uploadModal-3Rf .progress-bar {\n  background: #959595;\n  border-radius: 2px;\n  height: 2px;\n  left: 50%;\n  max-width: 318px;\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 80%;\n  z-index: 9;\n}\n.UploadStoryModal-uploadModal-3Rf .progress {\n  background: #fff;\n  height: 100%;\n  width: 0;\n}\n.UploadStoryModal-uploadModal-3Rf input[type='range']:hover {\n  cursor: pointer;\n}\n.UploadStoryModal-uploadModal-3Rf input[type='range']:active {\n  cursor: -webkit-grabbing;\n  cursor: grabbing;\n}\n.UploadStoryModal-uploadModal-3Rf .focus-visible.helicropter--scale-slider:focus {\n  outline: 1px solid #0057ff;\n  outline-offset: 2px;\n}\n", "" ]), 
+        t.locals = {
+            uploadModal: "UploadStoryModal-uploadModal-3Rf"
+        };
+    },
+    2646: function(e, t, n) {
+        "use strict";
+        n.r(t);
+        n(19), n(20), n(22), n(193), n(26), n(27), n(24), n(23);
+        var o = n(359), i = n(1059), s = n.n(i), r = n(365), a = n(603), p = n(1232), l = n(68), d = Object(l.default)({}, function() {
+            var e = this.$createElement, t = this._self._c || e;
+            return t("svg", {
+                staticClass: "icon--file icon--upload",
+                attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 12.85 12.85"
+                }
+            }, [ t("path", {
+                attrs: {
+                    d: "M16.5,10.075A6.425,6.425,0,1,0,22.925,16.5,6.425,6.425,0,0,0,16.5,10.075Zm3.073,7.352-2.9,2.9a.25.25,0,0,1-.354,0l-2.9-2.9A.25.25,0,0,1,13.6,17h1.9V12.75a.25.25,0,0,1,.25-.25h1.5a.25.25,0,0,1,.25.25V17h1.9a.25.25,0,0,1,.173.427Z",
+                    transform: "translate(-10.075 -10.075)"
+                }
+            }) ]);
+        }, [], !1, null, null, null).exports, c = n(1221), u = n(28), f = {
+            name: "TextAppLink",
+            components: {
+                SMSAppLink: c.a
+            },
+            data: function() {
+                return {
+                    downloadGoogleAppUrl: u.URL_APPS_DOWNLOAD_NETWORK_GOOGLE,
+                    downloadIosAppUrl: u.URL_APPS_DOWNLOAD_NETWORK
+                };
+            },
+            props: {
+                sendSMSStatusCode: {
+                    type: Number
+                }
+            }
+        }, g = n(2505);
+        var h = Object(l.default)(f, function() {
+            var e = this, t = e.$createElement, n = e._self._c || t;
+            return n("div", {
+                class: e.$style.wrap
+            }, [ n("div", {
+                ref: "links",
+                class: e.$style.text,
+                domProps: {
+                    innerHTML: e._s(e.$translate("stories_upload_add_work_in_progress", "For videos, text, custom tags and more, download our app: now available for <a href='{downloadIosAppUrl}' target='_blank' class='link'>iPhone</a> and <a href='{downloadGoogleAppUrl}' target='_blank' class='link'>Android</a>", {
+                        downloadIosAppUrl: this.downloadIosAppUrl,
+                        downloadGoogleAppUrl: this.downloadGoogleAppUrl
+                    }))
+                }
+            }), n("SMSAppLink", {
+                ref: "phoneInput",
+                attrs: {
+                    sendSMSStatusCode: e.sendSMSStatusCode
+                },
+                on: {
+                    appLinkRequested: function(t) {
+                        return e.$emit("appLinkRequested", t);
+                    },
+                    smsSuccessMessageRead: function(t) {
+                        return e.$emit("smsSuccessMessageRead");
+                    }
+                }
+            }) ], 1);
+        }, [], !1, function(e) {
+            this.$style = g.default.locals || g.default;
+        }, null, null).exports, m = {
+            name: "Uploader",
+            components: {
+                Btn: o.a,
+                FileUploadIcon: d,
+                TextAppLink: h
+            },
+            props: {
+                canInitiateUpload: {
+                    type: Boolean
+                },
+                isDroppable: {
+                    type: Boolean
+                }
+            },
+            data: function() {
+                return {
+                    isDropping: !1
+                };
+            },
+            methods: {
+                initiateUpload: function() {
+                    this.canInitiateUpload && this.$emit("upload");
+                },
+                requestAppLink: function(e) {
+                    this.$emit("appLinkRequested", {
+                        phoneNumber: e,
+                        source: "Uploader"
+                    });
+                }
+            }
+        }, b = n(2507);
+        var x = Object(l.default)(m, function() {
+            var e, t = this, n = t.$createElement, o = t._self._c || n;
+            return o("div", {
+                ref: "root",
+                class: [ t.$style.wrapper, (e = {}, e[t.$style.dropping] = t.isDropping && t.isDroppable, 
+                e) ]
+            }, [ o("div", {
+                ref: "uploader",
+                class: t.$style.chooseWrap,
+                on: {
+                    dragenter: function(e) {
+                        t.isDropping = !0;
+                    },
+                    dragleave: function(e) {
+                        t.isDropping = !1;
+                    }
+                }
+            }, [ o("div", {
+                ref: "fileUpload",
+                class: [ t.$style.choose, "qa-story-choose-file" ],
+                on: {
+                    click: t.initiateUpload
+                }
+            }, [ o("FileUploadIcon", {
+                class: t.$style.uploadIcon
+            }), o("h5", {
+                class: t.$style.header
+            }, [ t._v(t._s(t.$translate("stories_add_image_here", "Add image here"))) ]), o("p", {
+                class: t.$style.text
+            }, [ t._v(" " + t._s(t.$translate("stories_share_your_work", "Quickly share what you're working on."))), o("br"), t._v(" " + t._s(t.$translate("stories_share_your_work_expiracy", "Work in Progress segments expire in 24 hours.")) + " ") ]), o("Btn", {
+                ref: "uploadBtn",
+                attrs: {
+                    type: "primary",
+                    disabled: !t.canInitiateUpload
+                }
+            }, [ t._v(t._s(t.$translate("stories_upload_image", "Upload Image"))) ]) ], 1) ]), o("TextAppLink", t._b({
+                ref: "textAppLink",
+                class: t.$style.textApp,
+                on: {
+                    appLinkRequested: t.requestAppLink,
+                    smsSuccessMessageRead: function(e) {
+                        return t.$emit("smsSuccessMessageRead");
+                    }
+                }
+            }, "TextAppLink", t.$attrs, !1)) ], 1);
+        }, [], !1, function(e) {
+            this.$style = b.default.locals || b.default;
+        }, null, null).exports, y = (n(110), n(71), n(368)), _ = n(1791), w = n(362), S = n(360), v = n(7), k = {
+            name: "Cropper",
+            props: {
+                user: {
+                    type: Object
+                },
+                sendSMSStatusCode: {
+                    type: Number
+                },
+                isPostFailed: {
+                    type: Boolean
+                },
+                canPost: {
+                    type: Boolean
+                },
+                suggestedTags: {
+                    type: Object
+                }
+            },
+            watch: {
+                isPostFailed: function(e) {
+                    this.isPosting = !e;
+                },
+                sendSMSStatusCode: function(e) {
+                    this.persistToolTip = e === v.j.FAIL;
+                }
+            },
+            data: function() {
+                return {
+                    isPosting: !1,
+                    persistToolTip: !1,
+                    annotations: []
+                };
+            },
+            components: {
+                Avatar: y.a,
+                Btn: o.a,
+                InfoIcon: _.a,
+                TextAppLink: h,
+                Spinner: w.a,
+                Tooltip: S.a
+            },
+            methods: {
+                toggleTag: function(e) {
+                    var t = this.annotations.indexOf(e);
+                    t > -1 ? this.annotations.splice(t, 1) : this.annotations.push(e);
+                },
+                postStory: function() {
+                    this.$emit("postStory", {
+                        annotations: this.annotations
+                    }), this.isPosting = !0;
+                },
+                appLinkRequested: function(e) {
+                    this.$emit("appLinkRequested", {
+                        phoneNumber: e,
+                        source: "Cropper"
+                    }), this.persistToolTip = !0;
+                }
+            }
+        }, $ = n(2509);
+        var C = Object(l.default)(k, function() {
+            var e = this, t = e.$createElement, n = e._self._c || t;
+            return n("div", {
+                ref: "cropper",
+                class: e.$style.cropper,
+                on: {
+                    mousedown: function(t) {
+                        return e.$emit("dragstarted");
+                    },
+                    mouseup: function(t) {
+                        return e.$emit("dragended");
+                    }
+                }
+            }, [ n("div", {
+                ref: "helicropter"
+            }), n("div", {
+                ref: "previewCrop",
+                class: e.$style.previewCropContainer
+            }), e.canPost && e.suggestedTags ? n("div", {
+                ref: "tags",
+                class: [ e.$style.tags, "qa-story-tags" ]
+            }, [ n("span", {
+                class: e.$style.tagsTitle
+            }, [ e._v(e._s(e.$translate("stories_upload_add_a_tag", "Add a Tag:"))) ]), e._l(e.suggestedTags, function(t, o) {
+                return n("label", {
+                    key: o,
+                    class: [ e.$style.tagsLabel, "qa-story-tag" ],
+                    attrs: {
+                        tabindex: "0",
+                        "data-ut": "cropper-suggested-tag"
+                    },
+                    on: {
+                        keypress: function(n) {
+                            return !n.type.indexOf("key") && e._k(n.keyCode, "enter", 13, n.key, "Enter") ? null : e.toggleTag(t);
+                        }
+                    }
+                }, [ n("input", {
+                    directives: [ {
+                        name: "model",
+                        rawName: "v-model",
+                        value: e.annotations,
+                        expression: "annotations"
+                    } ],
+                    ref: "tag",
+                    refInFor: !0,
+                    class: e.$style.tagInput,
+                    attrs: {
+                        type: "checkbox",
+                        disabled: e.isPosting,
+                        tabindex: "-1"
+                    },
+                    domProps: {
+                        value: t,
+                        checked: Array.isArray(e.annotations) ? e._i(e.annotations, t) > -1 : e.annotations
+                    },
+                    on: {
+                        change: function(n) {
+                            var o = e.annotations, i = n.target, s = !!i.checked;
+                            if (Array.isArray(o)) {
+                                var r = t, a = e._i(o, r);
+                                i.checked ? a < 0 && (e.annotations = o.concat([ r ])) : a > -1 && (e.annotations = o.slice(0, a).concat(o.slice(a + 1)));
+                            } else e.annotations = s;
+                        }
+                    }
+                }), n("span", {
+                    class: e.$style.tagsName
+                }, [ e._v(e._s(t)) ]) ]);
+            }) ], 2) : e._e(), n("div", {
+                ref: "mediaOverlay",
+                class: e.$style.mediaOverlay
+            }, [ e.user ? n("div", {
+                ref: "userDisplayName",
+                class: e.$style.user
+            }, [ n("Avatar", {
+                ref: "avatar",
+                class: e.$style.avatar,
+                attrs: {
+                    src: e.user.images[50],
+                    src2x: e.user.images[100],
+                    size: 30,
+                    isDisabled: !0
+                }
+            }), n("span", {
+                class: e.$style.avatarUsername
+            }, [ e._v(" " + e._s(e.user.display_name)) ]) ], 1) : e._e() ]), n("div", {
+                class: e.$style.actionButtons
+            }, [ n("Btn", {
+                ref: "cancelBtn",
+                attrs: {
+                    type: "ghost",
+                    disabled: e.isPosting
+                },
+                on: {
+                    click: function(t) {
+                        return e.$emit("cancelPost");
+                    }
+                }
+            }, [ e._v(" " + e._s(e.$translate("stories_upload_cancel", "Cancel")) + " ") ]), n("Btn", {
+                ref: "postBtn",
+                class: [ e.$style.postBtn, "qa-story-post" ],
+                attrs: {
+                    type: "primary",
+                    disabled: e.isPosting || !e.canPost
+                },
+                on: {
+                    click: e.postStory
+                }
+            }, [ e.isPosting ? n("Spinner", {
+                ref: "postingSpinner",
+                class: e.$style.postingSpinner,
+                attrs: {
+                    slot: "leadingIcon",
+                    color: "white"
+                },
+                slot: "leadingIcon"
+            }) : e._e(), e.isPosting ? e._e() : n("span", {
+                ref: "isNotPostingLabel"
+            }, [ e._v(e._s(e.$translate("stories_upload_post", "Post"))) ]), e.isPosting ? n("span", {
+                ref: "isPostingLabel"
+            }, [ e._v(e._s(e.$translate("stories_upload_posting", "Posting"))) ]) : e._e() ], 1) ], 1), n("div", {
+                class: e.$style.addMoreWrap
+            }, [ n("Tooltip", {
+                ref: "smsTooltip",
+                attrs: {
+                    alignment: "center",
+                    horizontalPadding: 5,
+                    verticalPadding: 5,
+                    position: "top",
+                    toggleMethod: "click",
+                    isOpen: e.persistToolTip
+                }
+            }, [ n("div", {
+                attrs: {
+                    slot: "tooltipContent"
+                },
+                slot: "tooltipContent"
+            }, [ n("TextAppLink", e._b({
+                attrs: {
+                    sendSMSStatusCode: e.sendSMSStatusCode
+                },
+                on: {
+                    appLinkRequested: e.appLinkRequested,
+                    smsSuccessMessageRead: function(t) {
+                        return e.$emit("smsSuccessMessageRead");
+                    }
+                }
+            }, "TextAppLink", e.$attrs, !1)) ], 1), n("span", {
+                ref: "more",
+                class: e.$style.addMore
+            }, [ n("InfoIcon", {
+                class: e.$style.info
+            }), e._v(" " + e._s(e.$translate("stories_upload_looking_to_add_more", "Add texts, use brushes, custom tags & more?")) + " ") ], 1) ]) ], 1) ]);
+        }, [], !1, function(e) {
+            this.$style = $.default.locals || $.default;
+        }, null, null).exports, M = n(120), U = n.n(M);
+        function A(e, t) {
+            var n = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable;
+                })), n.push.apply(n, o);
+            }
+            return n;
+        }
+        function L(e, t, n) {
+            return t in e ? Object.defineProperty(e, t, {
+                value: n,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0
+            }) : e[t] = n, e;
+        }
+        var I = {
+            name: "UploadStoryModal",
+            props: {
+                postStoryStatusCode: {
+                    type: Number
+                },
+                uploaderConfig: {
+                    type: Object
+                }
+            },
+            watch: {
+                postStoryStatusCode: function(e) {
+                    this.isPostFailed = e === v.j.FAILED;
+                }
+            },
+            data: function() {
+                return {
+                    helicropter: null,
+                    isEditing: !1,
+                    isPostFailed: !1,
+                    isConfirmModalVisible: !1,
+                    isProcessing: !1,
+                    isUploading: !1,
+                    isUploaded: !1,
+                    isDragging: !1,
+                    imageWidth: 420,
+                    imageHeight: 750,
+                    didUseSlider: !1,
+                    analyticsUploadCancelBtn: v.b,
+                    analyticsUploadDiscardModal: v.c,
+                    analyticsUploadStep: v.d
+                };
+            },
+            components: {
+                Btn: o.a,
+                Modal: r.a,
+                ConfirmationModal: a.a,
+                Uploader: x,
+                Cropper: C
+            },
+            computed: {
+                contentStyle: function() {
+                    var e = {
+                        minWidth: "0px",
+                        overflow: "visible",
+                        padding: "25px",
+                        marginTop: "-30px",
+                        maxHeight: "none"
+                    };
+                    return this.isEditing ? e : function(e) {
+                        for (var t = 1; t < arguments.length; t++) {
+                            var n = null != arguments[t] ? arguments[t] : {};
+                            t % 2 ? A(Object(n), !0).forEach(function(t) {
+                                L(e, t, n[t]);
+                            }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : A(Object(n)).forEach(function(t) {
+                                Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(n, t));
+                            });
+                        }
+                        return e;
+                    }({}, e, {}, {
+                        background: "transparent",
+                        marginTop: "0px"
+                    });
+                }
+            },
+            methods: {
+                close: function() {
+                    this.isEditing = !1, this.isConfirmModalVisible = !1, this.$emit("wipUploadCancelled", {
+                        source: this.analyticsUploadDiscardModal
+                    }), this.$emit("closeModal");
+                },
+                displayDiscardModal: function() {
+                    this.isEditing || this.$emit("wipUploadCancelled", {
+                        source: this.analyticsUploadStep
+                    }), this.isConfirmModalVisible = this.isEditing && !this.isDragging, this.isDragging = !1;
+                },
+                initHelicropter: function() {
+                    var e = this.imageWidth, t = this.imageHeight;
+                    this.helicropter = new p.a({
+                        uploaderOptions: U()(this.uploaderConfig, {
+                            cors: {
+                                expected: !1
+                            },
+                            signature: {
+                                customHeaders: {
+                                    "X-BCP": s.a.get()
+                                }
+                            },
+                            validation: {
+                                sizeLimit: 8388608,
+                                allowedExtensions: [ "jpg", "jpeg", "png" ],
+                                acceptFiles: "image/*",
+                                itemLimit: 1,
+                                image: {
+                                    minWidth: this.imageWidth
+                                }
+                            },
+                            messages: {
+                                tooManyItemsError: this.$translate("stories_upload_too_many_items", "Please only upload one file at a time."),
+                                typeError: this.$translate("stories_upload_invalid_extension", "{file} has an invalid extension. Valid extension(s): {extensions}"),
+                                sizeError: this.$translate("stories_upload_file_too_large", "{file} is too large, maximum file size is {sizeLimit}."),
+                                minSizeError: this.$translate("stories_upload_file_min_size", "{file} is too small, minimum file size is {minSizeLimit}."),
+                                emptyError: this.$translate("stories_upload_file_empty", "{file} is empty, please select files again without it."),
+                                noFilesError: this.$translate("stories_upload_file_non_existent", "No files to upload."),
+                                maxHeightImageError: this.$translate("stories_upload_file_too_tall", "Image is too tall."),
+                                maxWidthImageError: this.$translate("stories_upload_file_too_wide", "Image is too wide."),
+                                minHeightImageError: this.$translate("stories_upload_file_too_short", "Image is not tall enough."),
+                                minWidthImageError: this.$translate("stories_upload_file_too_narrow", "Please choose an image that is at least {minWidth} pixels wide.", {
+                                    minWidth: this.imageWidth
+                                }),
+                                retryFailTooManyItems: this.$translate("stories_upload_retry_failed", "Retry failed - you have reached your file limit."),
+                                onLeave: this.$translate("stories_upload_file_being_uploaded", "The files are being uploaded, if you leave now the upload will be canceled."),
+                                unsupportedBrowserIos8Safari: this.$translate("stories_upload_unsupported", "Unrecoverable error - this browser does not permit file uploading of any kind due to serious bugs in iOS8 Safari.  Please use iOS8 Chrome until Apple fixes these issues.")
+                            }
+                        }),
+                        sliderIconStyle: "frame",
+                        blurryImageWarningText: this.$translate("stories_upload_blurry_image", "This zoom level will blur your image"),
+                        loaderStyle: "progressbar",
+                        canvasSize: {
+                            width: e,
+                            height: t
+                        },
+                        cropSize: {
+                            width: e,
+                            height: t
+                        },
+                        displayedWidth: e,
+                        previewCrop: {
+                            element: this.$refs.cropper.$refs.previewCrop
+                        },
+                        viewportRatio: "static",
+                        allowTransparency: !0,
+                        allowLetterboxing: !0,
+                        backgroundType: "solid",
+                        backgroundHex: "#000000",
+                        previewMode: !1,
+                        showRatioLock: !1,
+                        showSuggestions: !1,
+                        resize: {
+                            boundEl: this.$refs.cropper.$el,
+                            offset: 240,
+                            minHeight: 640
+                        }
+                    }), this.bindCropper(), this.helicropter.dropFileThenRender(this.$refs.uploader.$refs.uploader, this.$refs.cropper.$refs.helicropter);
+                },
+                postStory: function(e) {
+                    var t = e.annotations, n = this.helicropter.crop();
+                    this.$emit("postStory", {
+                        cropData: n,
+                        annotations: t
+                    });
+                },
+                upload: function() {
+                    this.helicropter && (this.$emit("uploadStarted"), this.helicropter.uploadThenRender(this.$refs.cropper.$refs.helicropter));
+                },
+                bindCropper: function() {
+                    var e = this;
+                    this.helicropter.on("image:processing", function() {
+                        return e.isProcessing = !0;
+                    }), this.helicropter.on("image:uploading", function() {
+                        e.isProcessing = !1, e.isUploading = !0, e.isEditing = !0, e.$emit("isUploading");
+                    }), this.helicropter.on("image:uploaded", function() {
+                        return e.isUploaded = !0;
+                    }), this.helicropter.on("error:upload", function(t) {
+                        return e.$emit("uploadError", {
+                            err: t.message
+                        });
+                    }), this.helicropter.on("slider:changed", function() {
+                        e.didUseSlider || (e.$emit("wipUploadSliderChanged"), e.didUseSlider = !0);
+                    });
+                },
+                unbindCropper: function() {
+                    this.helicropter.off();
+                }
+            },
+            mounted: function() {
+                this.initHelicropter(), this.$emit("mounted"), this.$refs.modal.$el.focus();
+            },
+            destroyed: function() {
+                this.helicropter && (this.unbindCropper(), this.helicropter.destroy(), this.helicropter = null);
+            }
+        }, P = n(2511);
+        var T = Object(l.default)(I, function() {
+            var e = this, t = e.$createElement, n = e._self._c || t;
+            return n("Modal", e._g(e._b({
+                ref: "modal",
+                class: [ e.$style.uploadModal, "qa-story-upload-modal" ],
+                attrs: {
+                    contentStyle: e.contentStyle,
+                    hasCloseButtonDesktop: !1,
+                    clickToClose: !e.isEditing,
+                    showModal: !0,
+                    tabindex: "0"
+                },
+                on: {
+                    backgroundClick: e.displayDiscardModal
+                }
+            }, "Modal", e.$attrs, !1), e.$listeners), [ n("ConfirmationModal", {
+                ref: "confirmDiscardModal",
+                attrs: {
+                    clickToClose: !1,
+                    isShown: e.isConfirmModalVisible,
+                    header: e.$translate("stories_upload_discard_title", "Discard Work in Progress"),
+                    buttonText: e.$translate("stories_upload_discard", "Discard")
+                },
+                on: {
+                    confirm: e.close,
+                    close: function(t) {
+                        e.isConfirmModalVisible = !1;
+                    }
+                }
+            }, [ n("span", [ e._v(e._s(e.$translate("stories_upload_discard_text", "Are you sure you want to discard this Work in Progress? This cannot be undone."))) ]) ]), n("Uploader", e._b({
+                directives: [ {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !e.isUploading,
+                    expression: "!isUploading"
+                } ],
+                ref: "uploader",
+                attrs: {
+                    canInitiateUpload: !e.isProcessing,
+                    isDroppable: !e.isProcessing
+                },
+                on: {
+                    upload: e.upload,
+                    appLinkRequested: function(t) {
+                        return e.$emit("appLinkRequested", t);
+                    },
+                    smsSuccessMessageRead: function(t) {
+                        return e.$emit("smsSuccessMessageRead");
+                    }
+                }
+            }, "Uploader", e.$attrs, !1)), n("Cropper", e._b({
+                directives: [ {
+                    name: "show",
+                    rawName: "v-show",
+                    value: e.isUploading,
+                    expression: "isUploading"
+                } ],
+                ref: "cropper",
+                attrs: {
+                    isPostFailed: e.isPostFailed,
+                    canPost: e.isUploaded
+                },
+                on: {
+                    dragstarted: function(t) {
+                        e.isDragging = !0;
+                    },
+                    dragended: function(t) {
+                        e.isDragging = !1;
+                    },
+                    postStory: e.postStory,
+                    cancelPost: function(t) {
+                        e.$emit("closeModal"), e.$emit("wipUploadCancelled", {
+                            source: e.analyticsUploadCancelBtn
+                        });
+                    },
+                    appLinkRequested: function(t) {
+                        return e.$emit("appLinkRequested", t);
+                    },
+                    smsSuccessMessageRead: function(t) {
+                        return e.$emit("smsSuccessMessageRead");
+                    }
+                }
+            }, "Cropper", e.$attrs, !1)) ], 1);
+        }, [], !1, function(e) {
+            this.$style = P.default.locals || P.default;
+        }, null, null);
+        t.default = T.exports;
+    },
+    480: function(e, t, n) {
+        e.exports = n(2)(193);
+    },
+    514: function(e, t, n) {
+        e.exports = n(2)(79);
+    },
+    600: function(e, t, n) {
+        e.exports = n(2)(182);
+    },
+    749: function(e, t, n) {
+        var o = n(1073);
+        "string" == typeof o && (o = [ [ e.i, o, "" ] ]), o.locals && (e.exports = o.locals);
+        (0, n(192).default)("6c5a47e4", o, !0, {});
+    },
+    892: function(e, t) {},
+    990: function(e, t, n) {
+        e.exports = n(2)(44);
+    }
+} ]);
